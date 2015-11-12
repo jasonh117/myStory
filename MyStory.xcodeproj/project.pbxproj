@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B87D06021BEEA8C200A83BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D06011BEEA8C200A83BCC /* AppDelegate.swift */; };
-		B87D06041BEEA8C200A83BCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D06031BEEA8C200A83BCC /* ViewController.swift */; };
+		B87D06041BEEA8C200A83BCC /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D06031BEEA8C200A83BCC /* HomeScreenViewController.swift */; };
 		B87D06071BEEA8C200A83BCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87D06051BEEA8C200A83BCC /* Main.storyboard */; };
 		B87D06091BEEA8C200A83BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B87D06081BEEA8C200A83BCC /* Assets.xcassets */; };
 		B87D060C1BEEA8C200A83BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B87D060A1BEEA8C200A83BCC /* LaunchScreen.storyboard */; };
 		B87D06171BEEA8C200A83BCC /* MyStoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D06161BEEA8C200A83BCC /* MyStoryTests.swift */; };
+		B87D06221BEEB30F00A83BCC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D06211BEEB30F00A83BCC /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,7 @@
 /* Begin PBXFileReference section */
 		B87D05FE1BEEA8C200A83BCC /* MyStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87D06011BEEA8C200A83BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B87D06031BEEA8C200A83BCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B87D06031BEEA8C200A83BCC /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		B87D06061BEEA8C200A83BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B87D06081BEEA8C200A83BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B87D060B1BEEA8C200A83BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 		B87D06121BEEA8C200A83BCC /* MyStoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyStoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87D06161BEEA8C200A83BCC /* MyStoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryTests.swift; sourceTree = "<group>"; };
 		B87D06181BEEA8C200A83BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B87D06211BEEB30F00A83BCC /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				B87D06011BEEA8C200A83BCC /* AppDelegate.swift */,
-				B87D06031BEEA8C200A83BCC /* ViewController.swift */,
+				B87D06031BEEA8C200A83BCC /* HomeScreenViewController.swift */,
 				B87D06051BEEA8C200A83BCC /* Main.storyboard */,
+				B87D06211BEEB30F00A83BCC /* GameView.swift */,
 				B87D06081BEEA8C200A83BCC /* Assets.xcassets */,
 				B87D060A1BEEA8C200A83BCC /* LaunchScreen.storyboard */,
 				B87D060D1BEEA8C200A83BCC /* Info.plist */,
@@ -199,7 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B87D06041BEEA8C200A83BCC /* ViewController.swift in Sources */,
+				B87D06041BEEA8C200A83BCC /* HomeScreenViewController.swift in Sources */,
+				B87D06221BEEB30F00A83BCC /* GameView.swift in Sources */,
 				B87D06021BEEA8C200A83BCC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +394,7 @@
 				B87D061D1BEEA8C200A83BCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B87D061E1BEEA8C200A83BCC /* Build configuration list for PBXNativeTarget "MyStoryTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +403,7 @@
 				B87D06201BEEA8C200A83BCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

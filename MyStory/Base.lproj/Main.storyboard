@@ -1,13 +1,127 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zrv-8j-Tbk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Game View-->
+        <scene sceneID="fef-Qx-qs4">
+            <objects>
+                <viewController id="jQX-gA-5CG" userLabel="Game View" customClass="GameView" customModule="MyStory" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j9q-7s-f1D"/>
+                        <viewControllerLayoutGuide type="bottom" id="yGX-DH-PP7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ze8-tD-cjp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc8-or-anI">
+                                <rect key="frame" x="30" y="164" width="540" height="30"/>
+                                <animations/>
+                                <state key="normal" title="test"/>
+                                <connections>
+                                    <action selector="buttonpress:" destination="jQX-gA-5CG" eventType="touchUpInside" id="emr-OD-Pah"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zc8-or-anI" firstAttribute="leading" secondItem="ze8-tD-cjp" secondAttribute="leadingMargin" constant="10" id="6Ic-7D-bIc"/>
+                            <constraint firstItem="Zc8-or-anI" firstAttribute="top" secondItem="j9q-7s-f1D" secondAttribute="bottom" constant="100" id="Q8y-6v-2SZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zc8-or-anI" secondAttribute="trailing" constant="10" id="tml-Bz-1Sh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testbutton" destination="Zc8-or-anI" id="qfn-c5-EdI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ikO-QP-pHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="1454"/>
+        </scene>
+        <!--Memory Album-->
+        <scene sceneID="Ert-YQ-8ug">
+            <objects>
+                <tableViewController id="jUR-6U-CRO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZC5-zP-3OZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VsO-I1-FcV">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VsO-I1-FcV" id="ejh-HG-aFf">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jUR-6U-CRO" id="Pg9-aQ-LNf"/>
+                            <outlet property="delegate" destination="jUR-6U-CRO" id="SwE-dW-c48"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Memory Album" id="yvc-Dj-lAy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kCs-6q-ZLB">
+                            <connections>
+                                <segue destination="bT1-PF-EeI" kind="presentation" id="R3b-Sw-qn5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEU-gZ-IA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1363" y="186"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EAG-Bf-POK">
+            <objects>
+                <navigationController id="bT1-PF-EeI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5oH-2W-4KB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YcC-bg-yt0" kind="relationship" relationship="rootViewController" id="Ufy-8W-LUa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yiy-jy-wid" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2031" y="186"/>
+        </scene>
+        <!--Add Memories-->
+        <scene sceneID="SOl-7t-5gl">
+            <objects>
+                <viewController id="YcC-bg-yt0" userLabel="Add Memories" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lip-5a-vms"/>
+                        <viewControllerLayoutGuide type="bottom" id="iet-s5-uic"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mfw-Zr-B9K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a Memory" id="HvO-dN-fII"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xgr-DK-unH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751" y="722"/>
+        </scene>
+        <!--Home Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeScreenViewController" customModule="MyStory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +129,80 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DoK-OS-ZgL">
+                                <rect key="frame" x="30" y="164" width="540" height="204"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcZ-jm-bWp">
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="48"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Memory Album">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="jUR-6U-CRO" kind="show" id="9lf-Mk-hRi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eun-O7-Zr9">
+                                        <rect key="frame" x="0.0" y="78" width="540" height="48"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Memory Games">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="jQX-gA-5CG" kind="show" id="zNs-1Q-eLh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXO-z8-Fnd">
+                                        <rect key="frame" x="0.0" y="156" width="540" height="48"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Add Memories">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="YcC-bg-yt0" kind="show" id="hUw-2k-YyS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DoK-OS-ZgL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="8pt-OM-k7y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DoK-OS-ZgL" secondAttribute="trailing" constant="10" id="JXE-AW-meH"/>
+                            <constraint firstItem="DoK-OS-ZgL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="cat-jF-kH0"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Home Screen" id="eKz-U6-COx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="649" y="722"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ppt-IG-fzP">
+            <objects>
+                <navigationController id="zrv-8j-Tbk" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Md-wy-lLK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hRd-zP-pV6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yKn-Vq-tEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-169" y="722"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ufy-8W-LUa"/>
+    </inferredMetricsTieBreakers>
 </document>
