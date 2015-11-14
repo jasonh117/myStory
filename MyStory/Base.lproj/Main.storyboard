@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Game View-->
@@ -46,22 +48,48 @@
         <!--Memory Album-->
         <scene sceneID="Ert-YQ-8ug">
             <objects>
-                <tableViewController id="jUR-6U-CRO" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZC5-zP-3OZ">
+                <tableViewController id="jUR-6U-CRO" customClass="MemoriesTableViewController" customModule="MyStory" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZC5-zP-3OZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VsO-I1-FcV">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MemoriesTableViewCell" rowHeight="90" id="VsO-I1-FcV" customClass="MemoriesTableViewCell" customModule="MyStory" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VsO-I1-FcV" id="ejh-HG-aFf">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="x0e-Er-8Qf">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
+                                            <animations/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="id3-w0-9kw">
+                                            <rect key="frame" x="168" y="8" width="424" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csu-zV-Aw6">
+                                            <rect key="frame" x="168" y="46" width="424" height="36"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="csu-zV-Aw6" id="F3O-Y5-mAu"/>
+                                    <outlet property="imageLabel" destination="x0e-Er-8Qf" id="ge0-Dh-pOt"/>
+                                    <outlet property="nameLabel" destination="id3-w0-9kw" id="DBg-TN-nIg"/>
+                                    <segue destination="YcC-bg-yt0" kind="show" identifier="ShowDetail" id="esx-G6-OIB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -70,11 +98,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Memory Album" id="yvc-Dj-lAy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kCs-6q-ZLB">
-                            <connections>
-                                <segue destination="bT1-PF-EeI" kind="presentation" id="R3b-Sw-qn5"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="05v-tu-yDm"/>
+                            <barButtonItem systemItem="add" id="kCs-6q-ZLB">
+                                <connections>
+                                    <segue destination="bT1-PF-EeI" kind="presentation" identifier="AddItem" id="R3b-Sw-qn5"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEU-gZ-IA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,7 +132,7 @@
         <!--Add Memories-->
         <scene sceneID="SOl-7t-5gl">
             <objects>
-                <viewController id="YcC-bg-yt0" userLabel="Add Memories" sceneMemberID="viewController">
+                <viewController id="YcC-bg-yt0" userLabel="Add Memories" customClass="AddMemoriesViewController" customModule="MyStory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lip-5a-vms"/>
                         <viewControllerLayoutGuide type="bottom" id="iet-s5-uic"/>
@@ -109,14 +140,102 @@
                     <view key="view" contentMode="scaleToFill" id="Mfw-Zr-B9K">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Upv-Fu-6fw">
+                                <rect key="frame" x="20" y="76" width="560" height="502"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Names of people in this memory" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EsN-yD-EBs">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <animations/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Ix3-14-gPa">
+                                        <rect key="frame" x="0.0" y="42" width="560" height="315"/>
+                                        <animations/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ix3-14-gPa" secondAttribute="height" multiplier="16:9" id="3Ar-29-oQL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="MNY-9P-H9z" appends="YES" id="i4P-jP-w7w"/>
+                                        </connections>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add additional information about this memory:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-wc-Hmv">
+                                        <rect key="frame" x="0.0" y="369" width="560" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7c0-9u-13m">
+                                        <rect key="frame" x="0.0" y="402" width="560" height="100"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.9455746644295302" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="cYp-l4-Uzb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Upv-Fu-6fw" firstAttribute="leading" secondItem="Mfw-Zr-B9K" secondAttribute="leadingMargin" id="Aop-Z1-jqu"/>
+                            <constraint firstItem="Upv-Fu-6fw" firstAttribute="trailing" secondItem="Mfw-Zr-B9K" secondAttribute="trailingMargin" id="nOX-07-P9R"/>
+                            <constraint firstItem="Upv-Fu-6fw" firstAttribute="top" secondItem="Lip-5a-vms" secondAttribute="bottom" constant="12" id="rDR-tm-7o0"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a Memory" id="HvO-dN-fII"/>
+                    <navigationItem key="navigationItem" title="Add a Memory" id="HvO-dN-fII">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EYp-qg-bVC">
+                            <connections>
+                                <action selector="cancel:" destination="YcC-bg-yt0" id="PDB-ca-XUZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ST4-3v-Qxu">
+                            <connections>
+                                <segue destination="CrB-zY-M8e" kind="unwind" unwindAction="prepareForUnwind:" id="Eu8-ge-MTt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="infoAboutMemory" destination="7c0-9u-13m" id="WNJ-en-Vfv"/>
+                        <outlet property="peopleInMemory" destination="EsN-yD-EBs" id="gsq-Gr-VmU"/>
+                        <outlet property="photoOfMemory" destination="Ix3-14-gPa" id="DT0-CN-gGv"/>
+                        <outlet property="saveButton" destination="ST4-3v-Qxu" id="qk9-3f-xMh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgr-DK-unH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CrB-zY-M8e" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="MNY-9P-H9z">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="YcC-bg-yt0" id="dSF-NH-ae4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2751" y="722"/>
+            <point key="canvasLocation" x="2706" y="722"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7S4-Uk-lKO">
+            <objects>
+                <navigationController id="D7T-mH-3CN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pac-GP-qQl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YcC-bg-yt0" kind="relationship" relationship="rootViewController" id="Nms-Dr-M5u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OYD-fk-GsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="901"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="tne-QT-ifu">
@@ -163,7 +282,7 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="YcC-bg-yt0" kind="show" id="hUw-2k-YyS"/>
+                                            <segue destination="D7T-mH-3CN" kind="show" identifier="AddItem" id="7BG-Ne-EAc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -202,7 +321,10 @@
             <point key="canvasLocation" x="-169" y="722"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="540" height="540"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ufy-8W-LUa"/>
+        <segue reference="esx-G6-OIB"/>
     </inferredMetricsTieBreakers>
 </document>
